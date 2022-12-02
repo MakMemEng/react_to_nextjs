@@ -6,7 +6,7 @@ import { Header } from "src/components/Header";
 import { useCallback } from "react";
 import Link from "next/link";
 
-export default function Home() {
+const Home = () => {
   const foo = 1;
 
   const handleClick = useCallback((e) => {
@@ -28,4 +28,6 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Home;

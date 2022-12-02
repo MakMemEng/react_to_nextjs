@@ -24,7 +24,7 @@ const ITMES = [
   },
 ];
 
-export function Links() {
+export const Links = () => {
   return (
     <div className={styles.grid}>
       {ITMES.map((item) => {
@@ -60,4 +60,4 @@ export function Links() {
       </a> */}
     </div>
   );
-}
+};
