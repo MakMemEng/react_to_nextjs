@@ -3,28 +3,24 @@ import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const Home = () => {
-  const foo = 1;
+  const [count, setCount] = useState(1);
 
-  const handleClick = useCallback((e) => {
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+  const handleClick = (e) => {
+    setCount((count) => count + 1);
+  };
 
   // useEffect: マウント時とアンマウント時の処理を切り分けする
   // Home Componentがマウントされるタイミングで実行
   // マウント: <div>配下がDOMに変換されるタイミング
   useEffect(() => {
-    console.log("マウント時");
     document.body.style.backgroundColor = "lightblue";
 
     // アンマウントするタイミングで実行
     return () => {
-      console.log("アンマウント時");
       document.body.style.backgroundColor = "";
     };
   }, []);
@@ -35,9 +31,10 @@ const Home = () => {
         <title>Index Page</title>
       </Head>
       <Header />
-      <Link href="/about" onClick={handleClick}>
+      <h1>{count}</h1>
+      <button href="/about" onClick={handleClick}>
         ボタン
-      </Link>
+      </button>
       <Main page="index" />
       <Footer />
     </div>
