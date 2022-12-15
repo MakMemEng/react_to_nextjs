@@ -29,6 +29,16 @@ const Home = () => {
     setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some((item) => item === text)) {
+        alert("既に同じ要素が存在してます．");
+        return prevArray;
+      }
+      return [...prevArray, text];
+    });
+  }, [text]);
+
   // useEffect: マウント時とアンマウント時の処理を切り分けする
   // Home Componentがマウントされるタイミングで実行
   // マウント: <div>配下がDOMに変換されるタイミング
@@ -54,6 +64,12 @@ const Home = () => {
       </button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
       <input type="text" value={text} onChange={handleChange} />
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map((item) => {
+          return <li key={item}>{item}</li>;
+        })}
+      </ul>
       <Main page="index" />
       <Footer />
     </div>
