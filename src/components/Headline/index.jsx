@@ -5,9 +5,9 @@ export const Headline = (props) => {
     <div>
       <h1 className={styles.title}>{props.page} page</h1>
 
-      <p className={styles.description}>
-        Get started by editing {props.children}
-      </p>
+      <p className={styles.description}>item count {props.children} 個</p>
+
+      <button onClick={props.handleReduce}>Linkの削除</button>
     </div>
   );
 };
