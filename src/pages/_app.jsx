@@ -2,14 +2,14 @@ import "src/styles/globals.css";
 import Head from "next/head";
 import { useCounter } from "src/hooks/useCounter";
 import { useInputArray } from "src/hooks/useInputArray";
-import { useBgLightBlue } from "src/hooks/useBgLightBlue";
+import { useBgColor } from "src/hooks/useBgColor";
 
 const MyApp = ({ Component, pageProps }) => {
   // counter = { count, isShow, handleClick, handleDisplay }
   const counter = useCounter();
   // inputArray = { text, array, handleChange, handleAdd }
   const inputArray = useInputArray();
-  useBgLightBlue();
+  useBgColor();
   return (
     <>
       <Head>
