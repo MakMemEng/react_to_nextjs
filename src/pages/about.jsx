@@ -5,7 +5,7 @@ import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
 
 const About = ({
-  count,
+  doubleCount,
   isShow,
   handleClick,
   handleDisplay,
@@ -21,7 +21,7 @@ const About = ({
       </Head>
       <Header />
       {/* useCounter */}
-      {isShow ? <h1>{count}</h1> : null}
+      {isShow ? <h1>{doubleCount}</h1> : null}
       <button href="/about" onClick={handleClick}>
         ボタン
       </button>
